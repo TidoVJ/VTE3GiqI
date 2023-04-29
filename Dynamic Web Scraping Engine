@@ -1,0 +1,30 @@
+"```python
+# -*- coding: utf-8 -*-
+
+import requests as rq
+import re
+from bs4 import BeautifulSoup as bs
+import json
+import threading
+import time
+
+user_agents = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0'
+]
+
+class Scheduler:
+    def __init__(self):
+        self.lock = threading.Lock()
+        self.data = []
+
+    def push(self, data):
+        with self.lock:
+            i = 0
+            while i < len(self.data) and self.data[i] < data['score']:
+                i += 1
+            self.data.insert(i, data)
+
+    def pop(self):
+ sharedApplication(Services_Application and_Loading)'"
